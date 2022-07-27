@@ -1,0 +1,23 @@
+{
+  "name": "djs",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "nodemon index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "better-sqlite3": "^7.6.2",
+    "discord-banners": "^1.0.1",
+    "discord.js": "^13.6.0",
+    "generate-password": "^1.7.0",
+    "glob": "^7.1.7",
+    "moment": "^2.29.4",
+    "mongoose": "^6.0.2",
+    "quick.db": "^9.0.5"
+  },
+  "description": ""
+}
