@@ -32,5 +32,7 @@ client.on("messageCreate", async (message) => {
     const command = client.commands.get(cmd.toLowerCase()) || client.commands.find(c => c.aliases?.includes(cmd.toLowerCase()));
 
     if (!command) return;
+    console.log(message.guild.id)
     await command.run(client, message, args);
+
 });

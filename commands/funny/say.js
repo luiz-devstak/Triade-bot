@@ -6,12 +6,12 @@ module.exports = {
   run: async (client, message, args) => {
       
    let embed = new MessageEmbed()
-       .setDescription('`>>say [mensagem]`')
+       .setDescription('`ex: t!say [mensagem]`')
        .setColor("RANDOM")
        if (!args.join(' ')) return message.reply({embeds: [embed]})
       
      let don = new MessageEmbed()
-      .setAuthor(message.author.tag, message.author.displayAvatarURL({ dyanmic: true }))
+      .setAuthor({name: message.author.tag, iconURL: message.author.displayAvatarURL({ dyanmic: true })})
         .setDescription(args.join(" "))
         .setTimestamp()
         .setColor("RANDOM")

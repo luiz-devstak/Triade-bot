@@ -1,39 +1,37 @@
-const { Message, Client, MessageEmbed } = require("discord.js");
-const { set } = require("mongoose");
+const Discord = require("discord.js")
 
 module.exports = {
-    name: "userinfo",
-    aliases: ['userinfo'],
-    /**
-     *
-     * @param {Client} client
-     * @param {Message} message
-     * @param {String[]} args
-     */
-    run: async (client, message, args) => {
-        let meses = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"]
-        message.channel.send({
-            embeds: [
-                new MessageEmbed()
-                    .setColor("RED")
-                    .setTimestamp()
-                    .setTitle(`📋 **| Suas informações do servidor **\`${message.guild.name}\`!`)
-                    .setFooter({
-                        text: message.author.tag,
-                        iconURL: message.author.displayAvatarURL(),
-                    })
-                    .addFields(
-                        { name: `👦 **Sua tag do discord!**`, value: `\`${message.author.tag}\``, inline: true },
-                        { name: `👨‍💻 **Seu id do discord!**`, value: `\`${message.author.id}\``, inline: false },
-                        { name: `🕒 **A data que você entrou no servidor!**`, value: `Você entrou em: ${message.member.joinedAt.getDate()} de ${meses [message.member.joinedAt.getMonth()]}, ${message.member.joinedAt.getFullYear()} às ${message.member.joinedAt.getHours()}:${message.member.joinedAt.getMinutes()}`, inline: false },
-                        { name: `🌆 **Seu avatar do discord!**`, value: `${message.author}`, inline: true },
-                    )
-                    .setAuthor({
-                        name: `${message.author.tag}`,
-                        iconURL: `${message.author.displayAvatarURL()}`,
-                    })
-                    .setImage(message.author.displayAvatarURL({ dynamic: true })),
-            ]
-        });
-    },
-};
+    name: "userinfo", // Coloque o nome do comando do arquivo
+    aliases: ["userinfo"], // Coloque sinônimos aqui
+
+    run: async(client, message, args) => {
+
+        let user = message.mentions.users.first() || client.users.cache.get(args[0]) || message.author;
+
+        let data = user.createdAt.toLocaleDateString("pt-br");
+        let avatar = user.displayAvatarURL({ dynamic: true });
+
+        let embed = new Discord.MessageEmbed()
+        .setColor("RED")
+        .setThumbnail(avatar)
+        .addFields(
+            {
+                name: `\\#️⃣ Tag`,
+                value: `\`${user.tag}\``,
+                inline: true
+            },
+            {
+                name: `\\🆔 ID`,
+                value: `\`${user.id}\``,
+                inline: true
+            },
+            {
+                name: `\\📅 Data de criação da conta:`,
+                value: `\`${data}\``,
+                inline: false
+            },
+        );
+
+        message.reply({ embeds: [embed] })     
+    }
+}

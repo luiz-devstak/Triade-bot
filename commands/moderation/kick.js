@@ -14,7 +14,6 @@ module.exports = {
             let motivo = args[1];
 
             if (!motivo) motivo = "Não definido.";
-
             if (!user) {
 
                 let embed = new Discord.MessageEmbed()
@@ -24,7 +23,6 @@ module.exports = {
                 message.reply({ embeds: [embed] })
 
             } else {
-
                     user.kick(motivo).then(() => message.reply(`O usuário \`${user.user.tag}\` foi expulso com sucesso.`)).catch(e => {
                         message.reply(`Eu não tenho permissão para expulsar o usuário \`${user.user.tag}\`.`)
                     })

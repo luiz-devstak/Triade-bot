@@ -9,13 +9,13 @@ module.exports = {
         let mulher = "993635008550010971" // coloque o id do cargo mulher
         let naobinario = "993635009539887185" // id do nao binario
         let menos18 = "993635013528670311" // id do cargo  -18
-        let mais18 = "993635013042130954" // id do cargo +'8
+        let mais18 = "993635013042130954" // id do cargo +18
         let hetero = "993635011246960671" // id do cargo hetero
         let lgbt = "993635010374541342"  // id do cargo lgbt
         let solteiro = "1001630568355737600"  // id do cargo solteiro
         let namorando = "1001630684126904400" // id do cargo namorando 
         let casado = "1001630807003242507" // id do cargo casado
-        let enrolado = "1001630871733940255" // id do cargp enrolado 
+        let enrolado = "1001630871733940255" // id do cargo enrolado 
         let equiperegistro = "993821722820223006" //Id do cargo da equipe de registro
         let registrado = "993635014212329474"// id do cargo registrado
         let naoregistrado = "993635016305283153"// id do cargo nao registrado
@@ -26,7 +26,7 @@ module.exports = {
         if (!membro) return message.reply({ embeds: [
                 new Discord.MessageEmbed()
                 .setColor("RED")
-                .setDescription(`\`!registrar [usuário]\``)
+                .setDescription(`\`t!registrar [usuário]\``)
             ] });
         
 
@@ -307,6 +307,5 @@ module.exports = {
                 })
             })
         })
-
     }
 }

@@ -1,39 +1,60 @@
-const { Message, Client, MessageEmbed } = require("discord.js");
-const { set } = require("mongoose");
+const Discord = require("discord.js")
 
 module.exports = {
-    name: "serverinfo",
-    aliases: ['svinfo', 'serverinfo'],
-    /**
-     *
-     * @param {Client} client
-     * @param {Message} message
-     * @param {String[]} args
-     */
-    run: async (client, message, args) => {
-        let meses = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"]
-        message.channel.send({
-            embeds: [
-                new MessageEmbed()
-                    .setColor("RED")
-                    .setTimestamp()
-                    .setTitle(`⭕ **| Informações do servidor!**`)
-                    .setFooter({
-                        text: message.author.tag,
-                        iconURL: message.author.displayAvatarURL(),
-                    })
-                    .addFields(
-                        { name: `🏠 **Nome do servidor!**`, value: `\`${message.guild.name}\``, inline: true },
-                        { name: `👨‍💻 **ID do servidor!**`, value: `\`${message.guild.id}\``, inline: false },
-                        { name: `🕒 **A data que o servidor foi criado!**`, value: `Server criado em: ${message.guild.joinedAt.getDate()} de ${meses[message.guild.joinedAt.getMonth()]}, ${message.guild.joinedAt.getFullYear()} às ${message.guild.joinedAt.getHours()}:${message.guild.joinedAt.getMinutes()}:${message.guild.joinedAt.getSeconds()}`, inline: false },
-                        { name: `🌆 **Avatar do servidor!**`, value: `${message.author}`, inline: true },
-                    )
-                    .setAuthor({
-                        name: `${message.author.username}`,
-                        iconURL: `${message.author.displayAvatarURL()}`,
-                    })
-                    .setImage(message.guild.iconURL({ dynamic: true })),
-            ]
-        });
-    },
-};
+    name: "serverinfo", // Coloque o nome do comando do arquivo
+    aliases: ["serverinfo"], // Coloque sinônimos aqui
+
+    run: async(client, message, args) => {
+
+        let membros = message.guild.memberCount;
+        let cargos = message.guild.roles.cache.size;
+        let canais = message.guild.channels.cache.size;
+        let servidor = message.guild;
+
+        let chats = message.guild.channels.cache.filter(a => a.type === "GUILD_TEXT").size;
+        let calls = message.guild.channels.cache.filter(a => a.type === "GUILD_VOICE").size;
+
+        let emojis = message.guild.emojis.cache.size;
+        let dono_id = message.guild.ownerId;
+        let dono = message.guild.members.cache.get(dono_id);
+        let impulsos = message.guild.premiumSubscriptionCount;
+        let data = message.guild.createdAt.toLocaleDateString("pt-br");
+
+        let embed = new Discord.MessageEmbed()
+        .setColor("RED")
+        .setTitle(`${message.guild.name}`)
+        .setThumbnail(`${message.guild.iconURL({ dynamic: true })}`)
+        .addFields(
+            {
+                name: `> \\📌 Principais:`,
+                value: `Dono: ${dono}\nMembros: \`${membros + 1}\`\nImpulsos: \`${impulsos}\`\nID: \`${servidor.id}\``,
+                inline: false
+            },
+            {
+                name: `> \\💬 Canais:`,
+                value: `Geral: \`${canais}\`\nChats: \`${chats}\`\nCalls: \`${calls}\``,
+                inline: false
+            },
+            {
+                name: `> \\💼 Cargos:`,
+                value: `\`${cargos}\``,
+                inline: false
+            },
+            {
+                name: `\\😎 Emojis:`,
+                value: `\`${emojis}\``,
+                inline: false
+            },
+            {
+                name: `> \\📅 Data de criação:`,
+                value: `\`${data}\``,
+                inline: false
+            },
+        );
+
+        message.reply({ embeds: [embed] })
+
+       
+        
+    }
+}
