@@ -8,7 +8,7 @@ module.exports = {
         message.channel.send({
             embeds: [
                 new MessageEmbed()
-                .setColor("RED")
+                .setColor("#ff000d")
                 .setTimestamp()
                 .setFooter({
                     text: message.author.tag,

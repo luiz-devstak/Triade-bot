@@ -15,7 +15,7 @@ module.exports = {
             if (!user) {
 
                 let embed = new Discord.MessageEmbed()
-                .setColor("RANDOM")
+                .setColor("#ff000d")
                 .setDescription(`\`t!unban [membro]\``);
 
                 message.reply({ embeds: [embed] })

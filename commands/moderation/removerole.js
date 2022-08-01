@@ -15,7 +15,7 @@ module.exports = {
 
             if (!user || !role) {
                 message.reply({ embeds: [new Discord.MessageEmbed()
-                .setColor("RANDOM")
+                .setColor("#ff000d")
                 .setDescription(`\`t!removecargo [usuário] [cargo]\``)] });
             } else if (user && role) {
                 message.reply(`✅ | O usuário ${user} perdeu o cargo \`${role.name}\`.`).then(msg=> {

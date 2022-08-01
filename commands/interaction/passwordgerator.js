@@ -13,7 +13,7 @@ module.exports = {
         });
 
         let embed = new Discord.MessageEmbed()
-            .setColor("RED")
+            .setColor("#ff000d")
             .setDescription(`> Sua senha gerada:\n\n\`\`\`\n${password}\n\`\`\``)
             .setAuthor({
                 name: `${message.author.username}`,

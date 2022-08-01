@@ -15,15 +15,15 @@ module.exports = {
             if (!canal) { 
                 message.reply({ embeds: [
                     new Discord.MessageEmbed()
-                    .setColor("RANDOM")
+                    .setColor("#ff000d")
                     .setDescription(`\`!setbotao [canal]\``)
                 ] })
             } else {
                 message.reply(`O canal de texto ${canal} foi configurado.`);
                 canal.send({ embeds: [
                     new Discord.MessageEmbed()
-                    .setColor("GREEN")
-                    .setDescription(`**Clique no botão a baixo para se verificar em nosso servidor!**`)
+                    .setColor("#ff000d")
+                    .setDescription(`**Para você visualizar os outros canais, você precisa fazer o seu registro em  <#993820461358129252>! Mas o principal e fazer a sua verificação clicando no botão a baixo!**`)
                 ], components: [
                     new Discord.MessageActionRow().addComponents(botao)
                 ] })

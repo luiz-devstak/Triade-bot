@@ -7,14 +7,14 @@ module.exports = {
       
    let embed = new MessageEmbed()
        .setDescription('`ex: t!say [mensagem]`')
-       .setColor("RANDOM")
+       .setColor("#ff000d")
        if (!args.join(' ')) return message.reply({embeds: [embed]})
       
      let don = new MessageEmbed()
       .setAuthor({name: message.author.tag, iconURL: message.author.displayAvatarURL({ dyanmic: true })})
         .setDescription(args.join(" "))
         .setTimestamp()
-        .setColor("RANDOM")
+        .setColor("#ff000d")
         message.delete().catch(O_o => {});
       
     message.channel.send({embeds: [don]})

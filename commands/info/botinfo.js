@@ -15,7 +15,7 @@ module.exports = {
     let versao = "^13.6.0";
 
     let embed = new Discord.MessageEmbed()
-      .setColor("RED")
+      .setColor("#ff000d")
       .setAuthor({
         name: client.user.username,
         iconURL: client.user.displayAvatarURL({ dynamic: true }),

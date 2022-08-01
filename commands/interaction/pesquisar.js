@@ -12,7 +12,7 @@ module.exports = {
         if (!pesquisa) {
 
             let embed = new Discord.MessageEmbed()
-            .setColor("RED")
+            .setColor("#ff000d")
             .setDescription(`\`t!pesquisar [sua pesquisa]\``);
 
             message.reply({ embeds: [embed] });
@@ -23,7 +23,7 @@ module.exports = {
 
             let embed = new Discord.MessageEmbed()
             .setAuthor({ name: "Google Search", iconURL: "https://i.imgur.com/8Cdp6nD.png" })
-            .setColor("RED")
+            .setColor("#ff000d")
             .setDescription(`**A pesquisa sobre \`${pesquisa_p}\`, de ${message.author}, teve o seguinte resultado:**`)
             .addFields(
                 {

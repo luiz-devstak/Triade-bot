@@ -21,7 +21,7 @@ module.exports = {
         let data = message.guild.createdAt.toLocaleDateString("pt-br");
 
         let embed = new Discord.MessageEmbed()
-        .setColor("RED")
+        .setColor("#ff000d")
         .setTitle(`${message.guild.name}`)
         .setThumbnail(`${message.guild.iconURL({ dynamic: true })}`)
         .addFields(

@@ -1,12 +1,12 @@
 const Discord = require("discord.js")
 
 module.exports = {
-    name: "kick", // Coloque o nome do comando do arquivo
-    aliases: ["expulsar"], // Coloque sinônimos aqui
+    name: "ban", // Coloque o nome do comando do arquivo
+    aliases: ["ban"], // Coloque sinônimos aqui
 
     run: async(client, message, args) => {
 
-        if (!message.member.permissions.has("KICK_MEMBERS")) {
+        if (!message.member.permissions.has("BAN_MEMBERS")) {
             message.reply(`Você não possui permissão para utilizar este comando.`)
         } else {
 
@@ -18,15 +18,15 @@ module.exports = {
             if (!user) {
 
                 let embed = new Discord.MessageEmbed()
-                .setColor("RANDOM")
-                .setDescription(`\`t!kick [membro] [motivo]\``);
+                .setColor("#ff000d")
+                .setDescription(`\`t!ban [membro] [motivo]\``);
 
                 message.reply({ embeds: [embed] })
 
             } else {
 
-                    user.kick(motivo).then(() => message.reply(`O usuário \`${user.user.tag}\` foi expulso com sucesso.`)).catch(e => {
-                        message.reply(`Não foi possível expulsar o usuário \`${user.user.tag}\`.`)
+                    user.ban({ reason: motivo }).then(() => message.reply(`O usuário \`${user.user.tag}\` foi banido com sucesso.`)).catch(e => {
+                        message.reply(`Não foi possível banir o usuário \`${user.user.tag}\`.`)
                     })
                     
             }

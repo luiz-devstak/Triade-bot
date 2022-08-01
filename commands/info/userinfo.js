@@ -12,7 +12,7 @@ module.exports = {
         let avatar = user.displayAvatarURL({ dynamic: true });
 
         let embed = new Discord.MessageEmbed()
-        .setColor("RED")
+        .setColor("#ff000d")
         .setThumbnail(avatar)
         .addFields(
             {

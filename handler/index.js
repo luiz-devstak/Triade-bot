@@ -22,13 +22,6 @@ module.exports = async (client) => {
             client.commands.set(file.name, properties);
         }
     });
-    client.on("message", (message) => {
-        if (message.content == ".") {
-            message.channel.send(
-                "<@&993821889589948416> Alguem quer ser verificado!"
-            );
-        }
-    });
 
     client.on('interactionCreate', interaction => {
 
@@ -52,7 +45,7 @@ module.exports = async (client) => {
             } else {}    
         }  
     })
-    
+
     // Events
     const eventFiles = await globPromise(`${process.cwd()}/events/*.js`);
     eventFiles.map((value) => require(value));

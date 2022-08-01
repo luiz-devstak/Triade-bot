@@ -18,7 +18,7 @@ module.exports = {
       .setDescription(
         `❗・${message.author} Você não possui permissão para \`Gerenciar Servidor!\``
       )
-      .setColor("2f3136");
+      .setColor("#ff000d");
 
     if (!perm)
       return message.channel
@@ -32,7 +32,7 @@ module.exports = {
     //         <----------- Permissão de bloquear channel -------->
 
     const InvalidChannelEmbed = new MessageEmbed()
-      .setColor("2f3136")
+      .setColor("#ff000d")
       .setDescription(
         `❗・Mencione um canal válido para bloquear.`
       );
@@ -48,7 +48,7 @@ module.exports = {
 
     await message.mentions.channels.forEach(async (channel) => {
       const AlreadyLockedEmbed = new MessageEmbed()
-        .setColor("2f3136")
+        .setColor("#ff000d")
         .setDescription(`<#${channel.id}> O canal já está desbloqueado`);
       if (channel.name.startsWith(`🔒`))
         return message.channel
@@ -70,7 +70,7 @@ module.exports = {
         );
 
         const SuccessfulLockedEmbed = new MessageEmbed()
-          .setColor("2f3136")
+          .setColor("#ff000d")
           .setDescription(
             `✅・<#${channel.id}> foi desbloqueado com sucesso.`
           );
@@ -80,7 +80,7 @@ module.exports = {
         const errorEmbed = new MessageEmbed()
           .setTitle("Ops, um erro inesperado aconteceu")
           .setDescription(`\`\`\`${err}\`\`\``)
-          .setColor("2f3136");
+          .setColor("#ff000d");
         message.channel.send({ embeds: [errorEmbed] });
       }
     });
