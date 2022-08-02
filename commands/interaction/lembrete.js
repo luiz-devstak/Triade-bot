@@ -3,7 +3,7 @@ const ms = require("ms")
 
 module.exports = {
     name: "lembrete", // Coloque o nome do comando do arquivo
-    aliases: ["lembrete", "lembrar"], // Coloque sinônimos aqui
+    aliases: [""], // Coloque sinônimos aqui
 
     run: async(client, message, args) => {
 
@@ -34,19 +34,10 @@ module.exports = {
 
                 let embed = new Discord.MessageEmbed()
                 .setColor("#ff000d")
-                .setDescription(`\`t!lembrete [tempo] [lembrete]\``);
+                .setDescription(`\`!lembrete [tempo] [lembrete]\``);
     
                 message.reply({ embeds: [embed] })
-                then((msg) => {
-                    setTimeout(
-                      () =>
-                        msg.delete().catch((err) => {
-                          console.log(`Erro encontrado: ` + err);
-                        }),
-                      1000 * 12
-                    );
-                  });
-                console.log(`Erro encontrado: ` + err);
+
             }
         }
         

@@ -22,7 +22,6 @@ module.exports = {
                 user.roles.add(role.id).catch(e => { msg.edit(`:x: | Não foi possível adicionar o cargo \`${role.name}\` no usuário ${user}!`) })
                 })
             }
-
         }        
     }
 }

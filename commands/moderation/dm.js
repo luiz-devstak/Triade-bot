@@ -6,7 +6,7 @@ module.exports = {
 
     run: async(client, message, args) => {
 
-        if (!message.member.permissions.has("ADMINISTRATOR")) {
+        if (!message.member.permissions.has("")) {
             message.reply(`Você não possui permissião de \`Administrador\`.`)
         } else {
             let user = message.mentions.users.first() || client.users.cache.get(args[0]);

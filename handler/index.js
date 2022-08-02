@@ -44,7 +44,7 @@ module.exports = async (client) => {
                 } catch (er) { console.log(er) }
             } else {}    
         }  
-    })
+    });
 
     // Events
     const eventFiles = await globPromise(`${process.cwd()}/events/*.js`);
