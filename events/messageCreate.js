@@ -35,4 +35,5 @@ client.on("messageCreate", async (message) => {
     console.log(message.guild.id)
     await command.run(client, message, args);
 
+    
 });

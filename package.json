@@ -17,6 +17,7 @@
     "discord.js-akinator": "^2.1.0",
     "generate-password": "^1.7.0",
     "glob": "^7.1.7",
+    "jimp": "^0.16.1",
     "milliseconds": "^1.0.3",
     "moment": "^2.29.4",
     "mongoose": "^6.0.2",
